@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayush Patel | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b1120;
+    color: #f1f5f9;
+    line-height: 1.7;
+}
+
+:root {
+    --blue: #38bdf8;
+    --purple: #818cf8;
+    --card: #121c30;
+    --muted: #a5b4c8;
+}
+
+header {
+    background: #111b2e;
+    padding: 18px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #293852;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span, h1 span, h2 span {
+    color: var(--blue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 22px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #dbeafe;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: var(--blue);
+}
+
+.menu-btn {
+    display: none;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+section {
+    padding: 75px 8%;
+    scroll-margin-top: 70px;
+}
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 45px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-title {
+    color: var(--blue);
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(35px, 5vw, 55px);
+    line-height: 1.25;
+    margin: 20px 0;
+}
+
+h2 {
+    margin-bottom: 18px;
+}
+
+.hero h3 {
+    color: var(--purple);
+    margin-bottom: 18px;
+}
+
+p {
+    color: var(--muted);
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 7px;
+    background: var(--blue);
+    color: #07111f;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid var(--blue);
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--blue);
+}
+
+.profile-card {
+    background: var(--card);
+    border: 1px solid #30415d;
+    border-radius: 22px;
+    padding: 35px 25px;
+    text-align: center;
+    min-width: 260px;
+    box-shadow: 0 15px 45px #0004;
+}
+
+.avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--purple));
+    color: #0b1120;
+    display: grid;
+    place-items: center;
+    font-size: 43px;
+    font-weight: bold;
+    margin: 0 auto 18px;
+    border: 5px solid #293852;
+}
+
+.profile-card p {
+    margin: 8px 0;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.heading h2 {
+    font-size: 36px;
+}
+
+.about-card, .contact-card {
+    max-width: 850px;
+    margin: auto;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #293852;
+}
+
+.about-card h3 {
+    color: var(--blue);
+    margin-bottom: 12px;
+}
+
+.about-card p {
+    margin-bottom: 13px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: var(--card);
+    padding: 25px;
+    border: 1px solid #293852;
+    border-radius: 13px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--blue);
+}
+
+.card .icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--blue);
+}
+
+.tags {
+    margin-top: 15px;
+}
+
+.tags span {
+    display: inline-block;
+    padding: 4px 9px;
+    margin: 3px;
+    background: #263752;
+    border-radius: 5px;
+    color: #bae6fd;
+    font-size: 12px;
+}
+
+.project-note {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+form {
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+    margin: 15px 0 6px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #0b1425;
+    color: white;
+    border: 1px solid #34445e;
+    border-radius: 7px;
+    font: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: 1px solid var(--blue);
+}
+
+textarea {
+    resize: vertical;
+}
+
+#formStatus {
+    margin-top: 15px;
+}
+
+.contact-links {
+    margin-top: 25px;
+    overflow-wrap: anywhere;
+}
+
+.contact-links a {
+    color: var(--blue);
+}
+
+footer {
+    text-align: center;
+    background: #111b2e;
+    padding: 25px;
+    border-top: 1px solid #293852;
+}
+
+footer a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+@media (max-width: 800px) {
+    .hero {
+        flex-direction: column;
+        align-items: stretch;
+        padding-top: 55px;
+    }
+
+    .profile-card {
+        min-width: 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px 5%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: #111b2e;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    section {
+        padding: 55px 6%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heading h2 {
+        font-size: 30px;
+    }
+
+    .buttons .btn {
+        text-align: center;
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a class="logo" href="#home">Ayush Patel</a>
+
+        <button class="menu-btn" id="menuBtn"
+                aria-label="Toggle menu"
+                aria-expanded="false">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <p class="small-title">WELCOME TO MY PORTFOLIO</p>
+
+        <h1>Hello, I'm <span>Ayush Patel</span></h1>
+
+        <h3>Computer Science Engineering Student</h3>
+
+        <p>
+            I am passionate about programming, web development,
+            and technology. I enjoy learning new skills and
+            creating projects that solve problems.
+        </p>
+
+        <div class="buttons">
+            <a href="#projects" class="btn">Explore Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+        </div>
+    </div>
+
+    <div class="profile-card">
+        <div class="avatar">AP</div>
+        <h2>Ayush Patel</h2>
+        <p>Future Software Developer</p>
+        <p>💻 Programming</p>
+        <p>🌐 Web Development</p>
+        <p>🚀 Continuous Learning</p>
+    </div>
+</section>
+
+<section id="about">
+    <div class="heading">
+        <p class="small-title">GET TO KNOW ME</p>
+        <h2>About <span>Me</span></h2>
+    </div>
+
+    <div class="about-card">
+        <h3>Who Am I?</h3>
+
+        <p>
+            Hello! My name is Ayush Patel. I am a Computer Science
+            Engineering student interested in programming,
+            web development, and modern technology.
+        </p>
+
+        <p>
+            I enjoy learning new concepts, improving my problem-solving
+            skills, and developing useful projects. My goal is to
+            become a skilled software developer and continue growing
+            my technical knowledge.
+        </p>
+
+        <p>
+            This portfolio showcases my skills, projects, and
+            learning journey.
+        </p>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="heading">
+        <p class="small-title">WHAT I AM LEARNING</p>
+        <h2>My <span>Skills</span></h2>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>HTML</h3>
+            <p>Building the structure of websites.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎨</div>
+            <h3>CSS</h3>
+            <p>Designing attractive website layouts.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>Adding interactive website features.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">☕</div>
+            <h3>Java</h3>
+            <p>Learning object-oriented programming.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🐙</div>
+            <h3>GitHub</h3>
+            <p>Sharing and managing project code.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🧠</div>
+            <h3>Problem Solving</h3>
+            <p>Developing logical thinking skills.</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="heading">
+        <p class="small-title">MY WORK</p>
+        <h2>My <span>Projects</span></h2>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Personal Portfolio</h3>
+            <p>
+                A personal website presenting my profile,
+                skills, and projects.
+            </p>
+            <div class="tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon">🎬</div>
+            <h3>Movie Website</h3>
+            <p>
+                A website concept for presenting movie
+                information and details.
+            </p>
+            <div class="tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon">☕</div>
+            <h3>Java Project</h3>
+            <p>
+                A programming project for practicing Java,
+                classes, objects, and logic.
+            </p>
+            <div class="tags">
+                <span>Java</span><span>OOP</span>
+            </div>
+        </div>
+    </div>
+
+    <p class="project-note">
+        Replace these sample projects with Ayush's actual projects.
+    </p>
+</section>
+
+<section id="contact">
+    <div class="heading">
+        <p class="small-title">LET'S CONNECT</p>
+        <h2>Contact <span>Me</span></h2>
+    </div>
+
+    <div class="contact-card">
+        <h3>Let's Talk!</h3>
+        <p>Send a message using the form below.</p>
+
+        <form id="contactForm">
+            <label for="name">Your Name</label>
+            <input id="name" type="text"
+                   placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input id="email" type="email"
+                   placeholder="Enter your email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" rows="5"
+                      placeholder="Write your message"
+                      required></textarea>
+
+            <button class="btn" type="submit">Send Message</button>
+        </form>
+
+        <p id="formStatus" role="status" aria-live="polite"></p>
+
+        <div class="contact-links">
+            <p>Email: <a id="emailLink"
+               href="mailto:your-email@example.com">
+               25amtics239@gmail.com
+            </a></p>
+
+            <p>GitHub:
+               <a href="https://github.com/"
+                  target="_blank" rel="noopener noreferrer">
+                  AyushPatel239
+               </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Ayush Patel | Personal Portfolio</p>
+    <a href="#home">Back to Top ↑</a>
+</footer>
+
+<script>
+    // Mobile navigation
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+        const opened = navLinks.classList.toggle("active");
+
+        menuBtn.textContent = opened ? "✕" : "☰";
+        menuBtn.setAttribute("aria-expanded", opened);
+    });
+
+    // Close mobile menu when a link is selected
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+            menuBtn.textContent = "☰";
+            menuBtn.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    // Automatic year
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+    // Contact form: open the visitor's email application
+    document.getElementById("contactForm").addEventListener(
+        "submit",
+        function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const status = document.getElementById("formStatus");
+
+            if (!name || !email || !message) {
+                status.textContent = "Please complete all fields.";
+                return;
+            }
+
+            const recipient = "your-email@example.com";
+
+            if (recipient === "your-email@example.com") {
+                status.textContent =
+                    "Please add Ayush's real email address in the code first.";
+                return;
+            }
+
+            const subject = encodeURIComponent(
+                "Portfolio message from " + name
+            );
+
+            const body = encodeURIComponent(
+                "Name: " + name +
+                "\nEmail: " + email +
+                "\n\nMessage:\n" + message
+            );
+
+            status.textContent =
+                "Opening your email application...";
+
+            window.location.href =
+                "mailto:" + recipient +
+                "?subject=" + subject +
+                "&body=" + body;
+        }
+    );
+</script>
+
+</body>
+</html>
